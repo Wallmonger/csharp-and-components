@@ -10,6 +10,9 @@ public class CubeScript : MonoBehaviour
 
     // Instanciation d'un objet vide cube, dont on renseignera l'objet directement dans unity
     public GameObject cube;
+    
+    // Instanciation d'un objet vide cube, qui deviendra le cube survolé par la souris
+    GameObject selectedCube = null;
 
     // Start is called before the first frame update
     void Start()
@@ -23,18 +26,27 @@ public class CubeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // A chaque frame, on vérifie si le clic droit est activé, et si oui on supprime notre objet.
+        if(Input.GetMouseButtonUp(1)) 
+        {
+            Destroy(selectedCube);
+        }
     }
 
     private void OnMouseOver() 
     {
+        // Lorsque je survole un cube, je l'assigne à ma variable
+        selectedCube = this.gameObject;
         mat.color = overColor;
     }
 
 // Lorsqu'on ne survole plus l'élément
     private void OnMouseExit() 
     {
-        mat.color = baseColor;   
+        mat.color = baseColor;
+
+        // Lorsque je ne survole plus, je remet la variable à null pour éviter de stocker de nombreux cubes
+        selectedCube = null;   
     }
 
 
@@ -47,5 +59,6 @@ public class CubeScript : MonoBehaviour
         // Ensuite, on instancie un nouveau gameObject avec les paramètres de position, en conservant sa rotation
         GameObject go = Instantiate(cube, pos, Quaternion.identity);
         go.GetComponent<MeshRenderer>().material.color = new Color(0.1f,0.5f,0.1f);
+
     }
 }
