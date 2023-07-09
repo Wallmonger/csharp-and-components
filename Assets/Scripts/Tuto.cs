@@ -22,7 +22,7 @@ public class Tuto : MonoBehaviour
                 {
                     // On accède au composant MeshRenderer afin de modifier ses propriétés
                     go.GetComponent<MeshRenderer>().material.color =  couleur2;
-                    go.transform.position += new Vector3(0,1,0);
+                    go.transform.position += Vector3.up;
                 }
             }
            
