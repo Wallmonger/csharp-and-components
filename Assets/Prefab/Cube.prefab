@@ -112,3 +112,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseColor: {r: 0, g: 0, b: 0, a: 0}
   overColor: {r: 0.38679248, g: 0, b: 0, a: 0}
+  cube: {fileID: 916043247145986920}
