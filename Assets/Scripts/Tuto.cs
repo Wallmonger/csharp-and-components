@@ -18,10 +18,11 @@ public class Tuto : MonoBehaviour
             {
                 // On stocke chaque GameObject (cube) dans une variable "go"
                 GameObject go = Instantiate(cubeObj, new Vector3(i,0,j), Quaternion.identity);
-                if ((j % 2) != 0 && (i % 2) != 0) 
+                if ((j % 2) == 0 && (i % 2) == 0) 
                 {
                     // On accède au composant MeshRenderer afin de modifier ses propriétés
                     go.GetComponent<MeshRenderer>().material.color =  couleur2;
+                    go.transform.position += new Vector3(0,1,0);
                 }
             }
            
